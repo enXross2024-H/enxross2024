@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  service-client:
+    build: ./service-client
+    tty: true
+    volumes:
+      - ./service-client:/service-client
+      - ./service-client/node_modules:/service-client/node_modules:delegated
