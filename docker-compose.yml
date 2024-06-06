@@ -1,8 +1,17 @@
 version: "3.8"
 services:
   service-client:
+    container_name: service-client
     build: ./service-client
     tty: true
     volumes:
       - ./service-client:/service-client
       - ./service-client/node_modules:/service-client/node_modules:delegated
+      - next_cache_volume:/service-client/.next
+      - build_volume:/service-client/build:nocopy
+    ports:
+      - "3000:3000"
+
+volumes:
+  next_cache_volume:
+  build_volume:
