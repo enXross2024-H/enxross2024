@@ -8,6 +8,7 @@ services:
       - ./service-client/node_modules:/service-client/node_modules:delegated
       - next_cache_volume:/service-client/.next
       - build_volume:/service-client/build:nocopy
+      - ./certs:/service-client/certs
     ports:
       - "3000:3000"
 
