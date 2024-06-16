@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "aframe": "^1.6.0",
+    "aframe-react": "^4.4.0",
     "next": "14.2.3",
-    "react": "^18",
-    "react-dom": "^18"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.0",
