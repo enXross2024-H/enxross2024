@@ -14,6 +14,7 @@ export default function Home() {
 			const configureImageTargets = () => {
 				XR8.XrController.configure({ DISABLE_IMAGE_TARGETS });
 			};
+
 			window.XR8
 				? configureImageTargets()
 				: window.addEventListener("xrloaded", configureImageTargets);
