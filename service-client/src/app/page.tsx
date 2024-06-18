@@ -1,8 +1,8 @@
 "use client";
 
 import "aframe";
-import { PlaceGroundComponents } from "@/components/PlaceGround";
-import aframeRegister from "@/lib/aframeRegister";
+// import { PlaceGroundComponents } from "@/components/PlaceGround";
+// import aframeRegister from "@/lib/aframeRegister";
 import { Entity, Scene } from "aframe-react";
 import { useEffect } from "react";
 
@@ -19,10 +19,10 @@ export default function Home() {
 				? configureImageTargets()
 				: window.addEventListener("xrloaded", configureImageTargets);
 		}
-		aframeRegister({
-			entities: PlaceGroundComponents,
-			registered: registeredComponents,
-		});
+		// aframeRegister({
+		// 	entities: PlaceGroundComponents,
+		// 	registered: registeredComponents,
+		// });
 	}, [DISABLE_IMAGE_TARGETS, registeredComponents]);
 
 	return (
