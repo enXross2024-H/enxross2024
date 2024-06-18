@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Head from "next/head";
 import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -17,15 +16,20 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
-			<Head>
-				<meta name="8thwall:renderer" content="aframe:1.1.0" />
-				<meta name="8thwall:package" content="@8thwall.xrextras" />
-				<meta name="8thwall:package" content="@8thwall.landing-page" />
-				<meta name="8thwall:package" content="@react.react" />
-				<meta name="8thwall:package" content="@react.react-dom" />
-				<meta name="8thwall:package" content="@react.react-router-dom" />
-			</Head>
+		<html lang="ja">
+			{/* XR Extras - provides utilities like load screen, almost there, and error handling.
+         See github.com/8thwall/web/tree/master/xrextras */}
+			<Script
+				strategy="lazyOnload"
+				src="//cdn.8thwall.com/web/xrextras/xrextras.js"
+			/>
+
+			{/* Landing Pages - see https://www.8thwall.com/docs/web/#landing-pages */}
+			<Script
+				strategy="lazyOnload"
+				src={"//cdn.8thwall.com/web/landing-page/landing-page.js"}
+			/>
+			{/* 8thWall Web - Replace the app key here with your own app key */}
 			<Script
 				async
 				src={`//apps.8thwall.com/xrweb?appKey=${process.env.NEXT_PUBLIC_8TH_WALL_APP_KEY}`}
