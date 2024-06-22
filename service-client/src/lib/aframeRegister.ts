@@ -1,4 +1,5 @@
 import type { INamedObject } from "@/types/aframe";
+import type { Dispatch, SetStateAction } from "react";
 
 // biome-ignore lint/suspicious/noExplicitAny: any is needed for A-Frame in 8th wall
 declare let AFRAME: any; /**
@@ -10,12 +11,18 @@ declare let AFRAME: any; /**
 const aframeRegister = ({
 	entities,
 	registered,
-}: { entities: INamedObject[]; registered: Set<string> }) => {
+	setter,
+}: {
+	entities: INamedObject[];
+	registered: Set<string>;
+	setter: Dispatch<SetStateAction<Set<string>>>;
+}) => {
 	for (const { name, val } of entities) {
 		if (registered.has(name)) {
 			return;
 		}
 		registered.add(name);
+		setter(registered);
 		AFRAME.registerComponent(name, val);
 	}
 };
