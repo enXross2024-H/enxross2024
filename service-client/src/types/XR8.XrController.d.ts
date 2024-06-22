@@ -1,0 +1,3 @@
+interface XrController {
+	configure(): void;
+}

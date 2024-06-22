@@ -9,4 +9,5 @@ RUN yarn install
 
 COPY . /service-client
 
-CMD ["yarn", "dev"]
+# Start the Next.js application in development mode
+CMD ["node", "server.js"]
