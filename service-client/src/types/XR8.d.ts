@@ -1,6 +1,5 @@
 interface XR8 {
 	version(): string;
-	addCameraPipelineModule(any): void;
 	XrController: XR8.XrController;
 }
 

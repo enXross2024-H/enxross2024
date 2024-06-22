@@ -17,23 +17,29 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="ja">
-			{/* XR Extras - provides utilities like load screen, almost there, and error handling.
-         See github.com/8thwall/web/tree/master/xrextras */}
-			<Script
-				strategy="lazyOnload"
-				src="//cdn.8thwall.com/web/xrextras/xrextras.js"
-			/>
+			<head>
+				<Script
+					strategy="beforeInteractive"
+					src="//cdn.8thwall.com/web/aframe/8frame-1.4.1.min.js"
+				/>
+				{/* XR Extras - provides utilities like load screen, almost there, and error handling.
+					See github.com/8thwall/web/tree/master/xrextras */}
+				<Script
+					strategy="beforeInteractive"
+					src="//cdn.8thwall.com/web/xrextras/xrextras.js"
+				/>
 
-			{/* Landing Pages - see https://www.8thwall.com/docs/web/#landing-pages */}
-			<Script
-				strategy="lazyOnload"
-				src={"//cdn.8thwall.com/web/landing-page/landing-page.js"}
-			/>
-			{/* 8thWall Web - Replace the app key here with your own app key */}
-			<Script
-				async
-				src={`//apps.8thwall.com/xrweb?appKey=${process.env.NEXT_PUBLIC_8TH_WALL_APP_KEY}`}
-			/>
+				{/* Landing Pages - see https://www.8thwall.com/docs/web/#landing-pages */}
+				<Script
+					strategy="beforeInteractive"
+					src={"//cdn.8thwall.com/web/landing-page/landing-page.js"}
+				/>
+				{/* 8thWall Web - Replace the app key here with your own app key */}
+				<Script
+					async
+					src={`//apps.8thwall.com/xrweb?appKey=${process.env.NEXT_PUBLIC_8TH_WALL_APP_KEY}`}
+				/>
+			</head>
 			<body className={inter.className}>{children}</body>
 		</html>
 	);
