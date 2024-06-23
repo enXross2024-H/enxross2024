@@ -26,6 +26,10 @@ export default function RootLayout({
 					strategy="beforeInteractive"
 					src="//cdn.8thwall.com/web/aframe/aframe-extras-6.1.1.min.js"
 				/>
+				<Script
+					strategy="beforeInteractive"
+					src="//cdn.8thwall.com/web/aframe/aframe-physics-system-4.0.1.min.js"
+				/>
 				{/* XR Extras - provides utilities like load screen, almost there, and error handling.
 					See github.com/8thwall/web/tree/master/xrextras */}
 				<Script

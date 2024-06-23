@@ -1,47 +1,49 @@
 <a-scene
-	tap-place
-	landing-page="mediaSrc: https://media.giphy.com/media/UIQc7mECaH5nw0Y03Y/giphy.mp4"
-	xrextras-loading
-	xrextras-runtime-error
-	renderer="antialias: true; colorManagement: true; physicallyCorrectLights: true;"
-	xrweb="allowedDevices: any; defaultEnvironmentFloorScale: 0.25"
->
-	<!-- We can define assets here to be loaded when A-Frame initializes -->
-	<a-assets>
-		<!-- Credit to Poly by Google for the model: https://poly.google.com/view/6pwiq7hSrHr -->
-		<a-asset-item
-			id="ultraman-dance"
-			src="https://xcueqg04onfx0es0.public.blob.vercel-storage.com/ultraman-dance-bjkuJbuYptA6NsX9pU31RGCFJNfryo.glb"
-		></a-asset-item>
-	</a-assets>
+  shoot-thanks
+  physics="iterations: 1"
+  landing-page
+  xrextras-loading
+  xrextras-runtime-error
+  renderer="colorManagement: true"
+  xrweb="allowedDevices: any">
 
-	<!-- The raycaster will emit mouse events on scene objects specified with the cantap class -->
-	<a-camera
-		position="0 8 0"
-		raycaster="objects: .cantap"
-		cursor="
-      fuse: false;
-      rayOrigin: mouse;"
-	>
-	</a-camera>
+  <!-- We can define assets here to be loaded when A-Frame initializes -->
+  <a-assets>
+		<!-- "Emoji in love (animated beating heart) free" (https://skfb.ly/oSDRq) by vmmaniac is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/). -->
+    <a-asset-item id="heartModel" src="https://xcueqg04onfx0es0.public.blob.vercel-storage.com/heart-emoji-cHobWcjWBEZpMJ1LxeWmHpsgFQHzHp.glb"></a-asset-item>
+  </a-assets>
 
-	<a-entity
-		light="type: directional;
-           intensity: 0.8;"
-		position="1 4.3 2.5"
-	>
-	</a-entity>
+  <a-camera
+    id="camera"
+    position="0 4 4">
+  </a-camera>
 
-	<a-light type="ambient" intensity="1"></a-light>
+  <a-entity
+    light="
+      type: directional;
+      intensity: 0.8;
+      castShadow: true;
+      shadowMapHeight:2048;
+      shadowMapWidth:2048;
+      shadowCameraTop: 20;
+      shadowCameraBottom: -20;
+      shadowCameraRight: 20;
+      shadowCameraLeft: -20;
+      target: #camera"
+    xrextras-attach="target: camera; offset: 0 15 0"
+    position="1 4.3 2.5"
+    shadow>
+  </a-entity>
 
-	<!-- Adding the cantap class allows the ground to be clicked -->
-	<a-entity
-		id="ground"
-		class="cantap"
-		geometry="primitive: box"
-		material="color: #ffffff; transparent: true; opacity: 0.0"
-		scale="10000 2 10000"
-		position="0 -1 0"
-	>
-	</a-entity>
+  <a-light type="ambient" intensity="0.5"></a-light>
+
+  <!-- Adding the static-body component allows the ground to be collided with -->
+  <a-box
+    id="ground"
+    static-body
+    scale="5000 2 5000"
+    position="0 -1 0"
+    material="shader: shadow; transparent: true; opacity: 0.4"
+    shadow>
+  </a-box>
 </a-scene>
