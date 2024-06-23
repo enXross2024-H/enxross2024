@@ -1,0 +1,56 @@
+<a-scene
+  landing-page 
+  vps-coaching-overlay
+  background="color: #303030"
+  renderer="colorManagement: true"
+  gltf-model="dracoDecoderPath: https://cdn.8thwall.com/web/aframe/draco-decoder/"
+  xrextras-runtime-error
+  xrextras-loading
+  xrweb="enableVps: true; allowedDevices: any">
+  <a-assets>
+    <a-asset-item id="vps-mesh" src="./assets/yurikamome.glb"></a-asset-item>
+    <a-asset-item id="vps-anim" src="./assets/ultraman-cleaning.glb"></a-asset-item>
+  </a-assets>
+
+  <!-- <div id="top-section">
+    <button id="map-btn">Return to Map</button>
+  </div> -->
+
+  <a-camera position="0 1.8 4" raycaster="objects: .cantap" cursor="fuse: false; rayOrigin: mouse;">
+  </a-camera>
+
+   <a-entity named-location="name: ゆりかもめ竹芝駅東口">
+    <!--hider material-->
+    <a-entity gltf-model="#vps-mesh" xrextras-hider-material> </a-entity>
+    <!--shadow material-->
+    <a-entity gltf-model="#vps-mesh" shadow-shader shadow="cast: false"> </a-entity>
+    <!--vps animation-->
+    <a-entity
+      gltf-model="#vps-anim"
+      reflections="type: realtime"
+      play-vps-animation
+      scale="0.05 0.05 0.05"
+      shadow="receive: false">
+    </a-entity>
+  </a-entity>
+
+  <a-entity
+    light="
+      type: directional;
+      intensity: 0.8;
+      castShadow: true;
+      shadowMapHeight:2048;
+      shadowMapWidth:2048;
+      shadowCameraTop: 10;
+      shadowCameraBottom: -10;
+      shadowCameraRight: 10;
+      shadowCameraLeft: -10;"
+    position="0 10 -6"
+    shadow>
+  </a-entity>
+
+  <a-light type="ambient" intensity="0.5"></a-light>
+
+  <!-- <a-entity vps-coaching-overlay="text: find the location"></a-entity> -->
+
+</a-scene>
