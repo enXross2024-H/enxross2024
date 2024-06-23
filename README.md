@@ -9,7 +9,13 @@ mkdir -p certs
 openssl req -newkey rsa:2048 -nodes -keyout certs/server.key -x509 -days 365 -out certs/server.crt
 ```
 
-2. Install the dependencies
+2. Create a `.env` file in the project with the following content:
+
+```.env
+NEXT_PUBLIC_8TH_WALL_APP_KEY=
+```
+
+3. Install the dependencies
 
 ```bash
 docker compose build
