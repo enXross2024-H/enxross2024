@@ -1,8 +1,8 @@
 "use client";
 
-import { PlaceGroundComponents } from "@/components/PlaceGround";
 import aframeRegister from "@/lib/aframeRegister";
 import onXrLoaded from "@/lib/onXrLoaded";
+import { shootThanksComponent } from "@/modules/shoot-thanks";
 import { useEffect, useState } from "react";
 import sceneHtml from "./placeground-scene.html";
 
@@ -20,7 +20,7 @@ export default function Home() {
 		if (typeof window === "undefined") return;
 		setAppRendered(true);
 		aframeRegister({
-			entities: [PlaceGroundComponents],
+			entities: [shootThanksComponent],
 			registered: registeredComponents,
 			setter: setRegisterdComponents,
 		});
