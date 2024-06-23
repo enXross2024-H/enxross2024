@@ -3,7 +3,6 @@
 import { PlaceGroundComponents } from "@/components/PlaceGround";
 import aframeRegister from "@/lib/aframeRegister";
 import onXrLoaded from "@/lib/onXrLoaded";
-import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import sceneHtml from "./placeground-scene.html";
 
