@@ -1,0 +1,91 @@
+<div id="overlay" style="z-index: 2">
+  <h3>DRAG TO MOVE</h3>
+</div>
+
+<a-scene 
+  responsive-immersive
+  xrextras-gesture-detector
+  landing-page
+  xrextras-loading
+  xrextras-runtime-error
+  renderer="colorManagement:true"
+  xrweb="allowedDevices: any; defaultEnvironmentFloorScale: 0.25">
+
+<!-- 未使用のためコメントアウト
+  <a-assets>
+    <a-asset-item id="navmesh-glb" src="./assets/nav-mesh.glb"></a-asset-item>
+    <a-asset-item id="model-glb" src="./assets/environment-model.glb"></a-asset-item>
+  </a-assets>
+-->
+
+  <a-camera
+    id="camera"
+    position="0 6 6">
+  </a-camera>
+
+
+  <a-entity
+    light="
+      type: directional;
+      shadowBias: -0.0001
+      intensity: 0.65;
+      castShadow: true;
+      shadowMapHeight:2048;
+      shadowMapWidth:2048;
+      shadowCameraTop: 40;
+      shadowCameraBottom: -40;
+      shadowCameraRight: 40;
+      shadowCameraLeft: -40;
+      target: #model"
+    xrextras-attach="target: model; offset: 8 15 4"
+    position="1 4.3 2.5"
+    shadow>
+  </a-entity>
+
+  <a-light type="ambient" intensity="0.4"></a-light>
+  
+  <a-plane
+    id="ground" 
+    rotation="-90 0 0" 
+    position="0 -.1 0"
+    width="1000" 
+    height="1000" 
+    material="shader: shadow" 
+    shadow>
+  </a-plane>
+
+  # 追加
+  <!--
+  <a-camera
+    gps-camera rotation-reader>
+  </a-camera>
+  -->
+  
+  <a-assets>
+    <img id="map-image" src="https://xcueqg04onfx0es0.public.blob.vercel-storage.com/takeshiba_city_map-DgeEScwTL59LfjuRSZRB6CItjfaWr8.png">
+  </a-assets>
+  <a-plane 
+    id="map-element"
+    src="#map-image"
+    position="0 0 -10"
+    rotation="0 0 0"
+    height="20"
+    width="20">
+  </a-plane>
+
+  <a-entity
+    id="current-location"
+    geometry="primitive: sphere; radius: 0.3"
+    material="color: red;"
+    position="0 0 -10">
+  </a-entity>
+
+  <a-text 
+    id="location-text"
+    value="Loading..."
+    position="0 0 -1"
+    now-position
+    color="black">
+  </a-text>
+  
+</a-scene>

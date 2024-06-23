@@ -1,10 +1,13 @@
 "use client";
 
-import { PlaceGroundComponents } from "@/components/PlaceGround";
 import aframeRegister from "@/lib/aframeRegister";
 import onXrLoaded from "@/lib/onXrLoaded";
+import { characterMoveComponent } from "@/modules/character-movement";
+import { navMeshComponent } from "@/modules/nav-mesh";
+import { nowPositionComponent } from "@/modules/now-position";
+import { responsiveImmersiveComponent } from "@/modules/responsive-immersive";
 import { useEffect, useState } from "react";
-import sceneHtml from "./placeground-scene.html";
+import sceneHtml from "./scene.html";
 
 export default function Home() {
 	const [appRendered, setAppRendered] = useState(false);
@@ -19,8 +22,14 @@ export default function Home() {
 	useEffect(() => {
 		if (typeof window === "undefined") return;
 		setAppRendered(true);
+
 		aframeRegister({
-			entities: [PlaceGroundComponents],
+			entities: [
+				characterMoveComponent,
+				navMeshComponent,
+				nowPositionComponent,
+				responsiveImmersiveComponent,
+			],
 			registered: registeredComponents,
 			setter: setRegisterdComponents,
 		});
