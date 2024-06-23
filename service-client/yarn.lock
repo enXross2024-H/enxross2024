@@ -1537,6 +1537,11 @@ three-bmfont-text@dmarcos/three-bmfont-text#eed4878795be9b3e38cf6aec6b903f56acd1
     nice-color-palettes "^3.0.0"
     quad-indices "^2.0.1"
 
+three@^0.165.0:
+  version "0.165.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.165.0.tgz#43b93b9b56c71b7eeee6b531d737ab573633ccd1"
+  integrity sha512-cc96IlVYGydeceu0e5xq70H8/yoVT/tXBxV/W8A/U6uOq7DXc4/s1Mkmnu6SqoYGhSRWWYFOhVwvq6V0VtbplA==
+
 "three@npm:super-three@0.164.0":
   version "0.164.0"
   resolved "https://registry.yarnpkg.com/super-three/-/super-three-0.164.0.tgz#2aaac4e551a1c54ff0522a41b81800b7aadad93a"
